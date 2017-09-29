@@ -7,6 +7,7 @@ RUN apk add \
     --update openssh \
     && sed -i s/#PermitRootLogin.*/PermitRootLogin\ yes/ /etc/ssh/sshd_config \
     && sed -i s/#PermitEmptyPasswords.*/PermitEmptyPasswords\ yes/ /etc/ssh/sshd_config \
+    && sed -i s/#PubkeyAuthentication.*/PubkeyAuthentication\ yes/ /etc/ssh/sshd_config \
     && echo "root:root" | chpasswd
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
